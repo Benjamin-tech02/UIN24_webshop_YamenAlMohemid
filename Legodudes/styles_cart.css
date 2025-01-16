@@ -10,8 +10,7 @@
 }
 
 html, body {
-    margin-left: 20px;
-    margin-right: 20px;
+    margin: 0;
     padding: 0;
 }
 
@@ -21,11 +20,15 @@ body {
     font-family: "Rubik", serif;
     font-size: 20px;
 }
+header, article, div, aside, section, footer, main {
+    box-sizing: border-box;
+}
 #content {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     background-color: var(--white);
+    position: relative;
 }
 
 header {
@@ -47,19 +50,20 @@ header {
         position: relative;
 
         #cartcount {
+            display: block;
             font-family: "Rubik", serif;
             font-size: 0.7rem;
             background-color: var(--red);
             color: var(--white);
             text-align: center;
-            width: 30px;
-            height: 30px;
+            width: 20px;
+            height: 20px;
             border-radius: 50%;
             padding-top: 5px;
             box-sizing: border-box;
             position: absolute;
-            top: 5px;
-            left: 5px;
+            top: 9px;
+            left: -7px;
         }
 
         img {
@@ -81,11 +85,11 @@ header {
             a {
                 text-transform: uppercase;
                 color: var(--white);
-                padding: 0.5rem 1rem;
+                padding: calc(0.5rem + 4px) 1rem;
                 display: inline-block;
                 text-decoration: none;
+                border-bottom: 4px solid var(--red);
             }
-
             a:hover {
                 background: var(--yellow);
                 color: var(--black);
@@ -95,14 +99,16 @@ header {
     }
 }
 
-main{
-    #productlist{
+main {
+    position: relative;
+
+    #productlist {
         display: flex;
         gap: 1rem;
         flex-wrap: wrap;
         justify-content: space-between;
-        padding-right: 1rem;
         padding-left: 1rem;
+        padding-right: 1rem;
     }
 
     h2 {
@@ -114,7 +120,7 @@ main{
     }
 
     article {
-        width: calc(30% - 1rem);
+        width: calc(33% - 1rem);
         background: var(--black);
         padding: 1rem;
         color: var(--white);
@@ -124,26 +130,75 @@ main{
             max-width: 100%;
         }
 
-        a{
+        a {
             color: var(--yellow);
             text-decoration: none;
         }
 
-        h3{
+        h3 {
             margin: 0;
             text-transform: uppercase;
         }
-
-        p{
+        p {
             margin: 0;
         }
 
-        button{
-            font-family: "Rubik", "serif";
+        button {
+            font-family: "Rubik", serif;
             font-size: 1rem;
-            background-color: var(--green);
+            background: var(--green);
             color: var(--white);
-            padding: 0.5rem 1rem;
+            padding: .5rem 1rem;
+            border: none;
+        }
+    }
+}
+
+#cart {
+    background: var(--black);
+    color: var(--white);
+    position: absolute;
+    right: 0;
+    top: 72px;
+    width: 450px;
+    padding: 1rem;
+    border-left: 5px solid var(--green);
+    border-bottom: 5px solid var(--green);
+    z-index: 999;
+
+    #cart-products {
+        display: flex;
+        flex-direction: column;
+
+        article {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--green);
+            padding-bottom: .5rem;
+            margin-bottom: .5rem;
+
+            .title {
+                width: calc(100% - 130px);
+            }
+            .price, .quanity {
+                width: 50px;
+            }
+            button {
+                width: 30px;
+                height: 30px;
+                display: block;
+                border: none;
+                font-size: 1.2rem;
+                border-radius: 50%;
+                background: var(--red);
+                color: var(--white);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+            }
         }
     }
 }
